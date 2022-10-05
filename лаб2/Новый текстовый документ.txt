@@ -1,0 +1,33 @@
+package кр;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ClassA {
+
+	public static void main(String[] args) throws IOException  {
+		// чтение строк пока не введёте "стоп"
+
+		BufferedReader a = new BufferedReader(new InputStreamReader(System.in));
+		String c;
+		do {
+			c =a.readLine();
+			System.out.println(c);
+		} 
+		while (!c.equals("стоп"));   // сравнение
+	}
+}
+
+public class ClassA {
+
+	public static void main(String[] args) throws IOException  {
+		// чтение символов
+
+		BufferedReader a = new BufferedReader(new InputStreamReader(System.in));
+		long c;
+		c = a.read();
+		System.out.println(c);	
+	}
+}
