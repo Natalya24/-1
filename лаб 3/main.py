@@ -1,25 +1,19 @@
+
 import csv
 from random import shuffle
-from names import Names
+
+from russian_names import RussianNames
 
 #exercise_1
-titles = [
-  'Табельный номер', 
-  'Фамилия И. О.',
-  'Пол',
-  'Год рождения',
-  'Год начала работы в компании',
-  'Подразделение',
-  'Должность',
-  'Оклад',
-  'Количество выполненных проектов'
+fieldnames = [
+  'Табельный номер', 'Фамилия И. О.', 'Пол', 'Год рождения', 'Начало работы (год)', 'Подразделение', 'Должность', 'Оклад', 'Кол-во проектов'
 ]
 
 def lastname_io ():
   lastnames = []
-  row_mens = Names(count=500, gender=1.0, patronymic=True, 
+  row_mens = RussianNames(count=500, gender=1.0, patronymic=True, 
     name_reduction=True, patronymic_reduction=True)
-  row_woman = Names(count=500, gender=0.0, patronymic=True, 
+  row_woman = RussianNames(count=500, gender=0.0, patronymic=True, 
     name_reduction=True, patronymic_reduction=True)
   for i in row_mens:
     lastnames.append([i])
@@ -35,21 +29,21 @@ def gender():
 def year_of_birth():
   years = []
   for i in range(1, 1001):
-    for j in range(1974, 2004):
+    for j in range(1973, 2007):
       years.append([j])
   return years
 
 def start_work():
   years = []
   for i in range(1, 1001):
-    for j in range(2000, 2022):
+    for j in range(2005, 2022):
       years.append([j])
   return years
 
 def money():
   money = []
   for i in range(1, 1001):
-    for j in range(35000, 100000):
+    for j in range(45000, 48500):
       money.append([j])
   return money
 
@@ -96,7 +90,7 @@ import pandas as pnd
 file = 'data.csv'
 with open(file, 'w', newline='') as f:
   writer = csv.writer(f)
-  writer.writerow([g for g in titles])
+  writer.writerow([g for g in fieldnames])
 
   post = post()
   staff = staff()
@@ -142,7 +136,7 @@ with open('data.csv','r') as csvfile:
   
 plt.bar(x, y, color = 'g', width = 0.5, label = "Кол-во проектов")
 plt.xlabel('Табельный номер')
-plt.ylabel('Количество выполненных проектов')
+plt.ylabel('Кол-во проектов')
 plt.title('План выполнения проектов')
 plt.legend()
 plt.show()
